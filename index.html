@@ -67,8 +67,8 @@
         </div>
     </section>
 
-    <div class="mission"></div>
-
+    <div class="mission desktop-block"></div>
+    <h2 class="slogan mobile-block">Дарим свободу выбирать</h2>
     <section class="utp-list">
         <article class="utp">
             <h3 class="utp__title">
@@ -96,7 +96,7 @@
     <section class="fast-order">
         <div class="fast-order__content">
             <h2 class="fast-order__title">
-                Хотите пропустить этот шаг?
+                Хотите пропустить этот&nbsp;шаг?
             </h2>
             <p class="fast-order__subtitle">
                 Отправьте свои контакты и имеющиеся данные, мы перезвоним для расчета
@@ -123,12 +123,8 @@
                 </label>
                 <button type="submit" class="button fast-order__submit">Перезвоните мне</button>
             </form>
-            <div class="fast-order__hint">
-                <p class="fast-order__hint-text">
-                    Объясним, поможем, Сделаем за&nbsp;вас
-                </p>
-            </div>
         </div>
+        <div class="fast-order__hint"></div>
     </section>
 
     <section class="calc">
@@ -219,7 +215,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_2-2 calc__step_active">
+        <div class="calc__step calc__step_2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор типа двери</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -243,7 +239,7 @@
                 </li>
             </ul>
             <div class="calc__items">
-                <div class="calc__item" data-next="2-2-1">
+                <div class="calc__item calc__item_col_2" data-next="2-2-1">
                     <div class="calc__item-title">Распашная</div>
                     <img class="calc__item-image" alt="Распашная" src="images/2-2-1.png">
                 </div>
@@ -254,7 +250,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_2-2-1 calc__step_active">
+        <div class="calc__step calc__step_2-2-1">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -297,7 +293,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_2-2-2 calc__step_active">
+        <div class="calc__step calc__step_2-2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -418,7 +414,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_3 calc__step_active">
+        <div class="calc__step calc__step_3 calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>3</b>: выбор цвета профиля</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -505,7 +501,7 @@
                             Доступны любые цвета по&nbsp;палитре RAL&#8209;Classic">
                             <span class="checkbox calc__radio-checkbox"></span>
                             <span class="text text_with-tooltip">
-                                Другой цвет по RAL
+                                Другой цвет по&nbsp;RAL
                             </span>
                         </label>
                     </div>
@@ -514,7 +510,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_4 calc__step_active">
+        <div class="calc__step calc__step_4 calc__step_active calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>4</b>: заполнение перегородки</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -619,7 +615,7 @@
             </div>
             <button class="button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_5 calc__step_active">
+        <div class="calc__step calc__step_5 calc__step_active calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>5</b>: дополнительные опции</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -677,23 +673,23 @@
             <button class="text text_with-tooltip skip-button">Пропустить этот шаг</button>
             <button class="button calc__submit-button">Перейти к расчету</button>
         </div>
-        <div class="calc__step calc__step_6 calc__step_active">
+        <div class="calc__step calc__step_6 calc__step_active calc__step_no-bg">
             <p class="calc__subtitle">Выглядит здорово! Приступим к расчету</p>
-            <div class="calc__items calc__items_type_form">
+            <div class="calc__items calc__items_type_form calc__items_type_final-form">
                 <img src="./images/1-1.png" alt="Алюминиевая перегородка с распашной дверью" class="calc__result-image">
                 <div class="calc__form calc__form_one-column">
                     <div class="size-input">
                         <p class="text size-input__label">Укажите нужные размеры</p>
                         <input type="text" class="input size-input__input" placeholder="Длина">
                         <input type="text" class="input size-input__input" placeholder="Ширина">
-                        <p class="text text_minor">Не знаете размеры?</p>
-                        <label class="calc__radio-item calc__radio-item_ral">
+                        <p class="text text_minor size-input__hint">Не знаете размеры?</p>
+                        <label class="calc__radio-item calc__radio-item_ral size-input__hint-checkbox">
                             <input type="checkbox" class="calc__radio-input" name="Вызвать замерщика" value="Да">
                             <span class="checkbox calc__radio-checkbox"></span>
                             <p class="text text_with-tooltip">Вызвать замерщика</p>
                         </label>
                     </div>
-                    <span class="calc__form-delimiter"></span>
+                    <span class="calc__form-delimiter desktop-block"></span>
                     <div class="file-input">
                         <input type="file" class="input input_type_file">
                         <p class="file-input__placeholder">
@@ -701,7 +697,7 @@
                             <span class="file-button"></span>
                         </p>
                     </div>
-                    <span class="calc__form-delimiter"></span>
+                    <span class="calc__form-delimiter desktop-block"></span>
                     <div class="user-info">
                         <label class="user-info__field">
                             <input type="text" class="input" placeholder="Ваше имя">
@@ -722,12 +718,12 @@
     <footer class="footer">
         <div class="footer__logo">
             <div class="logo"></div>
-            <span class="slogan">
-                Только лучшее<br> из стекла
+            <span class="footer-slogan">
+                Только лучшее из&nbsp;стекла
             </span>
         </div>
         <div class="address">
-            Пр. Маршала Блюхера,<br>12к7, офис 518
+            Пр. Маршала Блюхера, 12к7,&nbsp;офис&nbsp;518
         </div>
         <div class="social-buttons footer__social-buttons">
             <a href="#" class="social-button social-button_type_instagram"></a>
@@ -737,7 +733,7 @@
         <a class="email" href="mailto:pro@peregorodkalab.ru">
             pro@peregorodkalab.ru
         </a>
-        <div class="phone phone_with_icon phone_multi">
+        <div class="phone phone_with_icon phone_multi footer__phones">
             <div class="phone__list">
                 <a href="tel:+74954887012" class="phone__link">
                     8&nbsp;(495)&nbsp;488&#8209;70&#8209;12

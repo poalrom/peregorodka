@@ -11,7 +11,7 @@
 
 <body>
     <nav class="menu-popup menu-popup_hidden mobile-block">
-        <button class="menu-popup__close-button"></button>
+        <button class="menu-popup__close-button menu-toggler"></button>
         <div class="menu-popup__phones">
             <a href="tel:+74954887012" class="phone">
                 8&nbsp;(495)&nbsp;488&#8209;70&#8209;12
@@ -30,7 +30,7 @@
         </div>
     </nav>
     <section class="intro">
-        <button class="mobile-menu mobile-block"></button>
+        <button class="mobile-menu mobile-block menu-toggler"></button>
         <div class="logo intro__logo"></div>
         <a class="email intro__email desktop-block" href="mailto:pro@peregorodkalab.ru">
             pro@peregorodkalab.ru
@@ -43,7 +43,7 @@
             <a href="tel:+78123177567" class="phone desktop-block">
                 8&nbsp;(812)&nbsp;317&#8209;75&#8209;67
             </a>
-            <button class="intro__corner-button">
+            <button class="intro__corner-button order-toggler">
                 <i class="icon icon_type_pencil"></i>
                 Вызвать&nbsp;замерщика
             </button>
@@ -128,10 +128,7 @@
                     <input type="email" class="input" placeholder="Ваш email">
                 </label>
                 <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон">
-                    <span class="fast-order__field-description">
-                        Обязательное поле
-                    </span>
+                    <input type="phone" class="input" placeholder="Ваш телефон" required>
                 </label>
                 <label class="fast-order__field">
                     <input type="file" class="input input_type_file">
@@ -792,7 +789,7 @@
         </span>
         <div class="tooltip__arrow" data-popper-arrow></div>
     </div>
-    <div class="popup popup_hidden">
+    <div class="popup popup_hidden order-popup">
         <div class="popup__content">
             <h2 class="subtitle">Вызвать замерщика</h2>
             <form action="#" class="fast-order__form">
@@ -803,10 +800,7 @@
                     <input type="email" class="input" placeholder="Ваш email">
                 </label>
                 <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон">
-                    <span class="fast-order__field-description">
-                        Обязательное поле
-                    </span>
+                    <input type="phone" class="input" placeholder="Ваш телефон*" required>
                 </label>
                 <label class="fast-order__field">
                     <input type="file" class="input input_type_file">
@@ -815,9 +809,9 @@
                         <span class="file-button"></span>
                     </p>
                 </label>
-                <button type="submit" class="button fast-order__submit">Перезвоните мне</button>
+                <button type="submit" class="button">Перезвоните мне</button>
             </form>
-            <button class="popup__close-button">X</button>
+            <button class="popup__close-button order-toggler">X</button>
         </div>
     </div>
     <script src="https://unpkg.com/@popperjs/core@2"></script>

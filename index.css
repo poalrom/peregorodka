@@ -2048,6 +2048,9 @@ html {
         width: 11rem;
         background-size: auto 3.6rem;
     }
+    .popup__content {
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 670px) {

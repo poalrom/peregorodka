@@ -1,3 +1,5 @@
+/** TOOLTIPS */
+
 const tooltip = document.querySelector('.tooltip');
 const tooltipContent = tooltip.querySelector('.tooltip__content');
 let tooltipInstance;
@@ -50,3 +52,19 @@ function initTooltip(el) {
 }
 
 document.querySelectorAll('[data-tooltip]').forEach(initTooltip);
+
+/** MOBILE MENU */
+
+const mobileMenuPopup = document.querySelector('.menu-popup');
+const mobileMenuButtons = document.querySelectorAll('.menu-toggler')
+    .forEach((button) => {
+        button.addEventListener('click', () => mobileMenuPopup.classList.toggle('menu-popup_hidden'))
+    });
+
+/** ORDER POPUP */
+
+const orderPopup = document.querySelector('.order-popup');
+const orderButtons = document.querySelectorAll('.order-toggler')
+    .forEach((button) => {
+        button.addEventListener('click', () => orderPopup.classList.toggle('popup_hidden'))
+    });

@@ -863,9 +863,9 @@ html {
     border: none;
     background-color: white;
     width: 100%;
-    max-width: 37rem;
     padding: 1.7rem 2rem;
     border-radius: 4px;
+    font-size: 1.4rem;
 }
 
 .fast-order__field-description {
@@ -890,6 +890,7 @@ html {
     z-index: 2;
     margin: 0;
     padding: 1.7rem .5rem 1.7rem 2rem;
+    font-size: 1.4rem;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -949,7 +950,7 @@ html {
 }
 
 .utp__img {
-    max-width: 100%;
+    max-width: 80%;
 }
 
 .utp__delimiter {
@@ -1088,6 +1089,11 @@ html {
 
 .calc__items_type_final-form {
     background-image: none;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    column-gap: 3rem;
+    align-items: start;
+    padding-top: 6rem;
 }
 
 .calc__item {
@@ -1152,6 +1158,7 @@ html {
     flex-direction: column;
     align-items: flex-start;
     max-width: 90rem;
+    padding: 0 3rem;
 }
 
 .calc__form-delimiter {
@@ -1225,6 +1232,8 @@ html {
 
 .color-img_size_l img {
     height: 7.4rem;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .calc__radio-input:checked+.color-img:after {
@@ -1289,18 +1298,37 @@ html {
     background: none;
 }
 
-.calc__step_6 .calc__items_type_form {
-    padding-top: 0;
+.calc__result-image {
+    align-self: center;
+}
+
+.calc__additional-options {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.calc__additional-option {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.calc__additional-option .calc__large-image-wrapper {
+    height: 13rem;
+}
+
+.calc__additional-option .text {
+    font-size: 1.4rem;
 }
 
 .size-input {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 }
 
 .size-input>* {
-    margin-right: 2.0rem;
     margin-bottom: 3.0rem;
 }
 
@@ -1309,8 +1337,14 @@ html {
     margin-bottom: 1.5rem;
 }
 
+.size-input__hint {
+    text-align: right;
+    width: 47%;
+}
+
 .size-input__input {
-    width: 14.0rem;
+    width: 48%;
+    font-size: 1.4rem;
 }
 
 .file-input {
@@ -1318,6 +1352,7 @@ html {
     display: flex;
     flex-direction: column;
     padding: 3.0rem 0;
+    width: 100%;
 }
 
 .file-input .file-button {
@@ -1327,8 +1362,8 @@ html {
 .user-info {
     margin-top: 3.0rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 2.0rem;
+    row-gap: 2.0rem;
+    width: 100%;
 }
 
 .muted-link {
@@ -1373,6 +1408,15 @@ html {
 
 .footer__social-buttons .social-button {
     margin: 0;
+}
+
+.footer-slogan {
+    font-size: 1.4rem;
+}
+
+.address {
+    font-size: 1.4rem;
+    width: 18rem;
 }
 
 .popup {
@@ -1465,7 +1509,7 @@ html {
 }
 
 .spacer_header {
-    background-color: #f06326;
+    background-color: #ff631a;
 }
 
 .mobile-block {
@@ -1515,17 +1559,30 @@ html {
     }
     .mobile-menu {
         width: 9.3rem;
-        background-color: #f06326;
+        background-color: #ff631a;
         background-image: url(./images/mobile-menu.png);
         background-position: 3rem center;
         background-repeat: no-repeat;
         border: none;
-        padding: 0 3.5rem 0 0;
+        margin: 0 3.5rem 0 0;
         outline: none;
-        box-sizing: content-box;
+        background-size: 45%;
+        position: relative;
+    }
+    .mobile-menu:after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 0;
+        height: 100%;
+        width: 3.5rem;
+        background-color: #ff631a;
     }
     .intro__logo {
         top: 0;
+        background-image: url(./images/logo-mobile.png);
+        background-color: #ff631a;
+        background-position: center;
     }
     .intro__header {
         width: 50%;
@@ -1544,6 +1601,7 @@ html {
         border-radius: 0;
         width: 100%;
         padding: 0;
+        background-color: #ff631a;
     }
     .phone,
     .phone:last-of-type {
@@ -1741,6 +1799,18 @@ html {
     }
     .calc__result-image {
         width: 65%;
+        margin: 0 auto;
+    }
+    .calc__additional-options {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 3rem 3rem 0;
+        justify-content: space-around;
+        order: 2;
+    }
+    .calc__additional-option .text {
+        font-size: 2.4rem;
+        padding-top: 1rem;
     }
     .calc__items_type_form {
         flex-direction: column;
@@ -1753,6 +1823,7 @@ html {
         padding: 2rem 2rem 1rem;
         column-gap: 3rem;
         row-gap: 1.2rem;
+        order: 3;
     }
     .calc__radio-item {
         justify-content: center;
@@ -1859,6 +1930,9 @@ html {
         height: 7.7rem;
         width: 7.7rem;
     }
+    .social-button_inverse.social-button {
+        border: .2rem solid rgba(255, 255, 255, .25);
+    }
     .social-button_type_instagram {
         background-image: url(./images/instagram-mobile.png);
     }
@@ -1867,6 +1941,15 @@ html {
     }
     .social-button_type_twitter {
         background-image: url(./images/twitter-mobile.png);
+    }
+    .social-button_inverse.social-button_type_instagram {
+        background-image: url(./images/instagram-mobile-inverse.png);
+    }
+    .social-button_inverse.social-button_type_facebook {
+        background-image: url(./images/facebook-mobile-inverse.png);
+    }
+    .social-button_inverse.social-button_type_twitter {
+        background-image: url(./images/twitter-mobile-inverse.png);
     }
     .email:before {
         height: 2.1rem;
@@ -1891,6 +1974,79 @@ html {
     }
     .calc__items {
         grid-template-columns: 1fr;
+    }
+    .menu-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(32, 32, 44, .95);
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .menu-popup_hidden {
+        display: none;
+    }
+    .menu-popup__close-button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 9.3rem;
+        width: 9.3rem;
+        background-color: transparent;
+        background-image: url(./images/mobile-menu.png);
+        background-position: 3rem center;
+        background-repeat: no-repeat;
+        border: none;
+        outline: none;
+        background-size: 45%;
+    }
+    .menu-popup__phones:before {
+        content: '';
+        height: 8rem;
+        width: 8rem;
+        background-image: url(./images/phone-mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin-bottom: 5rem;
+    }
+    .menu-popup__phones {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-popup__phones .phone {
+        color: #fff;
+        padding: 0;
+        text-align: center;
+        width: auto;
+        font-size: 3.2rem;
+        margin-bottom: 3rem;
+    }
+    .menu-popup__phones .phone:last-child {
+        margin-bottom: 0;
+    }
+    .menu-popup .email {
+        font-size: 2.7rem;
+        text-decoration: none;
+        border-bottom: 1px solid #f06326;
+        padding-bottom: 1.5rem;
+        color: white;
+    }
+    .menu-popup .email:before {
+        width: 4.4rem;
+        height: 3.3rem;
+    }
+    .menu-popup .social-button {
+        height: 11rem;
+        width: 11rem;
+        background-size: auto 3.6rem;
     }
 }
 

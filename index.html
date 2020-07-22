@@ -24,9 +24,9 @@
             pro@peregorodkalab.ru
         </a>
         <div class="social-buttons">
-            <a href="#" class="social-button social-button_inverse social-button_type_instagram"></a>
-            <a href="#" class="social-button social-button_inverse social-button_type_facebook"></a>
-            <a href="#" class="social-button social-button_inverse social-button_type_twitter"></a>
+            <a target="_blank" href="#" class="social-button social-button_inverse social-button_type_instagram"></a>
+            <a target="_blank" href="#" class="social-button social-button_inverse social-button_type_facebook"></a>
+            <a target="_blank" href="#" class="social-button social-button_inverse social-button_type_twitter"></a>
         </div>
     </nav>
     <section class="intro">
@@ -55,9 +55,9 @@
             8&nbsp;(812)&nbsp;317&#8209;75&#8209;67
         </a>
         <div class="intro__social-buttons social-buttons desktop-block">
-            <a href="#" class="social-button social-button_type_instagram"></a>
-            <a href="#" class="social-button social-button_type_facebook"></a>
-            <a href="#" class="social-button social-button_type_twitter"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_instagram"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_facebook"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_twitter"></a>
         </div>
         <div class="intro__content">
             <h1 class="title">
@@ -122,16 +122,16 @@
             </p>
             <form action="#" class="fast-order__form">
                 <label class="fast-order__field">
-                    <input type="text" class="input" placeholder="Ваше имя">
+                    <input type="text" class="input" placeholder="Ваше имя" name="Имя">
                 </label>
                 <label class="fast-order__field">
-                    <input type="email" class="input" placeholder="Ваш email">
+                    <input type="email" class="input" placeholder="Ваш email" name="Email">
                 </label>
                 <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон" required>
+                    <input type="phone" class="input" placeholder="Ваш телефон" required name="Телефон">
                 </label>
                 <label class="fast-order__field">
-                    <input type="file" class="input input_type_file">
+                    <input type="file" class="input input_type_file" name="Файлы" multiple>
                     <p class="fast-order__field-placeholder">
                         Прикрепите файлы
                         <span class="file-button"></span>
@@ -143,7 +143,7 @@
         <div class="fast-order__hint"></div>
     </section>
 
-    <section class="calc">
+    <form class="calc" action="#">
         <h2 class="calc__title">Конструктор</h2>
         <div class="calc__step calc__step_1 calc__step_active">
             <p class="calc__subtitle">Шаг <b>1</b>: тип перегородки</p>
@@ -172,23 +172,27 @@
                 <div class="calc__item" data-next="2-1">
                     <div class="calc__item-title">Стеклянная</div>
                     <img class="calc__item-image" alt="Стеклянная" src="images/1-1.png">
+                    <input type="radio" name="Тип" class="calc__item-input" value="Стеклянная">
                 </div>
                 <div class="calc__item" data-next="2-2">
                     <div class="calc__item-title">Лофт</div>
                     <img class="calc__item-image" alt="Лофт" src="images/1-2.png">
+                    <input type="radio" name="Тип" class="calc__item-input" value="Лофт">
                 </div>
                 <div class="calc__item" data-next="2-3">
                     <div class="calc__item-title">Комбинированная</div>
                     <img class="calc__item-image" alt="Комбинированная" src="images/1-3.png">
+                    <input type="radio" name="Тип" class="calc__item-input" value="Комбинированная">
                 </div>
                 <div class="calc__item" data-next="2-4">
                     <div class="calc__item-title">Цельностеклянная</div>
                     <img class="calc__item-image" alt="Цельностеклянная" src="images/1-4.png">
+                    <input type="radio" name="Тип" class="calc__item-input" value="Цельностеклянная">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
-        <div class="calc__step calc__step_2-1 calc__step_active">
+        <div class="calc__step calc__step_2-1">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -215,21 +219,25 @@
                 <div class="calc__item">
                     <div class="calc__item-title">Алюминиевая 1&#8209;створчатая&nbsp;дверь</div>
                     <img class="calc__item-image" alt="Алюминиевая 1-створчатая дверь" src="images/2-1-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Алюминиевая 1-створчатая">
                 </div>
                 <div class="calc__item">
                     <div class="calc__item-title">Алюминиевая 2&#8209;створчатая&nbsp;дверь</div>
                     <img class="calc__item-image" alt="Алюминиевая 2-створчатая дверь" src="images/2-1-2.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Алюминиевая 2-створчатая">
                 </div>
                 <div class="calc__item">
                     <div class="calc__item-title">Цельностеклянная 1&#8209;створчатая&nbsp;дверь</div>
                     <img class="calc__item-image" alt="Цельностеклянная 1-створчатая дверь" src="images/2-1-3.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Цельностеклянная 1-створчатая">
                 </div>
                 <div class="calc__item">
                     <div class="calc__item-title">Цельностеклянная 2&#8209;створчатая&nbsp;дверь</div>
                     <img class="calc__item-image" alt="Цельностеклянная 2-створчатая дверь" src="images/2-1-4.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Цельностеклянная 2-створчатая">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор типа двери</p>
@@ -258,13 +266,15 @@
                 <div class="calc__item calc__item_col_2" data-next="2-2-1">
                     <div class="calc__item-title">Распашная</div>
                     <img class="calc__item-image" alt="Распашная" src="images/2-2-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Распашная">
                 </div>
                 <div class="calc__item" data-next="2-2-2">
                     <div class="calc__item-title">Сдвижная</div>
                     <img class="calc__item-image" alt="Сдвижная" src="images/2-3-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Сдвижная">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_2-2-1">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
@@ -290,24 +300,28 @@
                 </li>
             </ul>
             <div class="calc__items">
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Квадраты</div>
                     <img class="calc__item-image" alt="Квадраты" src="images/2-2-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Распашная Квадраты">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Комби 1</div>
                     <img class="calc__item-image" alt="Комби 1" src="images/2-2-2.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Распашная Комби 1">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Комби 2</div>
                     <img class="calc__item-image" alt="Комби 2" src="images/2-2-3.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Распашная Комби 2">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Прямоугольники</div>
                     <img class="calc__item-image" alt="Прямоугольники" src="images/2-2-4.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Распашная Прямоугольники">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_2-2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
@@ -333,24 +347,28 @@
                 </li>
             </ul>
             <div class="calc__items">
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Квадраты</div>
                     <img class="calc__item-image" alt="Квадраты" src="images/2-3-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Сдвижная Квадраты">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Комби 1</div>
                     <img class="calc__item-image" alt="Комби 1" src="images/2-3-2.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Сдвижная Комби 1">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Комби 2</div>
                     <img class="calc__item-image" alt="Комби 2" src="images/2-3-3.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Сдвижная Комби 2">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Прямоугольники</div>
                     <img class="calc__item-image" alt="Прямоугольники" src="images/2-3-4.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Сдвижная Прямоугольники">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_2-3">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
@@ -375,21 +393,24 @@
                     5
                 </li>
             </ul>
-            <div class="calc__items">
-                <div class="calc__item">
+            <div class="calc__items calc__items_col-3">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Комби</div>
                     <img class="calc__item-image" alt="Комби" src="images/2-4-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Комби">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Стеклянная</div>
                     <img class="calc__item-image" alt="Стеклянная" src="images/2-4-2.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Стеклянная">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Глухая</div>
                     <img class="calc__item-image" alt="Глухая" src="images/2-4-3.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Глухая">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_2-4">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
@@ -415,20 +436,23 @@
                 </li>
             </ul>
             <div class="calc__items">
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Цельностеклянная распашная</div>
                     <img class="calc__item-image" alt="Цельностеклянная распашная" src="images/2-5-1.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Цельностеклянная распашная">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Цельностеклянная в коробе</div>
                     <img class="calc__item-image" alt="Цельностеклянная в коробе" src="images/2-5-2.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Цельностеклянная в коробе">
                 </div>
-                <div class="calc__item">
+                <div class="calc__item" data-next="3">
                     <div class="calc__item-title">Цельностеклянная раздвижная</div>
                     <img class="calc__item-image" alt="Цельностеклянная раздвижная" src="images/2-5-3.png">
+                    <input type="radio" name="Дверь" class="calc__item-input" value="Цельностеклянная раздвижная">
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
         </div>
         <div class="calc__step calc__step_3 calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>3</b>: выбор цвета профиля</p>
@@ -524,9 +548,9 @@
                     <span class="calc__form-delimiter"></span>
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button" data-next="4">Далее</button>
         </div>
-        <div class="calc__step calc__step_4 calc__step_active calc__step_no-bg">
+        <div class="calc__step calc__step_4 calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>4</b>: заполнение перегородки</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -629,9 +653,9 @@
                     <span class="calc__form-delimiter"></span>
                 </div>
             </div>
-            <button class="button calc__submit-button">Далее</button>
+            <button type="button" class="button calc__next-button calc__submit-button" data-next="5">Далее</button>
         </div>
-        <div class="calc__step calc__step_5 calc__step_active calc__step_no-bg">
+        <div class="calc__step calc__step_5 calc__step_no-bg">
             <p class="calc__subtitle">Шаг <b>5</b>: дополнительные опции</p>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
@@ -686,18 +710,18 @@
                     </div>
                 </div>
             </div>
-            <button class="text text_with-tooltip skip-button">Пропустить этот шаг</button>
-            <button class="button calc__submit-button">Перейти к расчету</button>
+            <button class="text text_with-tooltip skip-button" data-next="6" type="button">Пропустить этот шаг</button>
+            <button type="button" class="button calc__next-button calc__submit-button" data-next="6">Перейти к расчету</button>
         </div>
-        <div class="calc__step calc__step_6 calc__step_active calc__step_no-bg">
+        <div class="calc__step calc__step_6 calc__step_no-bg">
             <p class="calc__subtitle">Выглядит здорово! Приступим к расчету</p>
             <div class="calc__items calc__items_type_form calc__items_type_final-form">
                 <img src="./images/1-1.png" alt="Алюминиевая перегородка с распашной дверью" class="calc__result-image">
                 <div class="calc__form calc__form_one-column">
                     <div class="size-input">
                         <p class="text size-input__label">Укажите нужные размеры</p>
-                        <input type="text" class="input size-input__input" placeholder="Длина">
-                        <input type="text" class="input size-input__input" placeholder="Ширина">
+                        <input type="text" class="input size-input__input" placeholder="Длина" name="Длина">
+                        <input type="text" class="input size-input__input" placeholder="Ширина" name="Ширина">
                         <p class="text text_minor size-input__hint">Не знаете размеры?</p>
                         <label class="calc__radio-item calc__radio-item_ral size-input__hint-checkbox">
                             <input type="checkbox" class="calc__radio-input" name="Вызвать замерщика" value="Да">
@@ -707,7 +731,7 @@
                     </div>
                     <span class="calc__form-delimiter desktop-block"></span>
                     <div class="file-input">
-                        <input type="file" class="input input_type_file">
+                        <input type="file" class="input input_type_file" name="Файлы" multiple>
                         <p class="file-input__placeholder">
                             Прикрепите файлы (план, проект)
                             <span class="file-button"></span>
@@ -716,13 +740,13 @@
                     <span class="calc__form-delimiter desktop-block"></span>
                     <div class="user-info">
                         <label class="user-info__field">
-                            <input type="text" class="input" placeholder="Ваше имя">
+                            <input type="text" class="input" placeholder="Ваше имя" name="Имя">
                         </label>
                         <label class="user-info__field">
-                            <input type="phone" class="input" placeholder="Телефон*" required>
+                            <input type="phone" class="input" placeholder="Телефон*" required name="Телефон">
                         </label>
                         <label class="user-info__field">
-                            <input type="email" class="input" placeholder="Email*" required>
+                            <input type="email" class="input" placeholder="Email*" required name="Email">
                         </label>
                     </div>
                 </div>
@@ -747,10 +771,10 @@
                     </div>
                 </div>
             </div>
-            <button class="button calc__submit-button">Получить расчет</button>
-            <a class="text text_minor muted-link">Политика конфиденциальности</a>
+            <button type="submit" class="button calc__submit-button">Получить расчет</button>
+            <a class="text text_minor muted-link" target="_blank">Политика конфиденциальности</a>
         </div>
-    </section>
+    </form>
     <footer class="footer">
         <div class="footer__logo">
             <div class="logo"></div>
@@ -762,9 +786,9 @@
             Пр. Маршала Блюхера, 12к7,&nbsp;офис&nbsp;518
         </div>
         <div class="social-buttons footer__social-buttons">
-            <a href="#" class="social-button social-button_type_instagram"></a>
-            <a href="#" class="social-button social-button_type_facebook"></a>
-            <a href="#" class="social-button social-button_type_twitter"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_instagram"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_facebook"></a>
+            <a target="_blank" href="#" class="social-button social-button_type_twitter"></a>
         </div>
         <a class="email" href="mailto:pro@peregorodkalab.ru">
             pro@peregorodkalab.ru
@@ -794,16 +818,16 @@
             <h2 class="subtitle">Вызвать замерщика</h2>
             <form action="#" class="fast-order__form">
                 <label class="fast-order__field">
-                    <input type="text" class="input" placeholder="Ваше имя">
+                    <input type="text" class="input" placeholder="Ваше имя" name="Имя">
                 </label>
                 <label class="fast-order__field">
-                    <input type="email" class="input" placeholder="Ваш email">
+                    <input type="email" class="input" placeholder="Ваш email" name="Email">
                 </label>
                 <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон*" required>
+                    <input type="phone" class="input" placeholder="Ваш телефон*" required name="Телефон">
                 </label>
                 <label class="fast-order__field">
-                    <input type="file" class="input input_type_file">
+                    <input type="file" class="input input_type_file" name="Файлы" multiple>
                     <p class="fast-order__field-placeholder">
                         Прикрепите файлы
                         <span class="file-button"></span>

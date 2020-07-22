@@ -1096,7 +1096,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     column-gap: 3rem;
-    align-items: start;
+    align-items: center;
     padding-top: 6rem;
 }
 
@@ -1335,6 +1335,10 @@ html {
     margin-bottom: 4rem;
 }
 
+.calc__additional-option_hidden {
+    display: none;
+}
+
 .calc__additional-option .calc__large-image-wrapper {
     height: 13rem;
 }
@@ -1539,6 +1543,10 @@ html {
 }
 
 .mobile-block {
+    display: none;
+}
+
+.glide__controls {
     display: none;
 }
 
@@ -1792,6 +1800,9 @@ html {
     .calc__item-title {
         font-size: 2.4rem;
     }
+    .steps {
+        margin-bottom: 5rem;
+    }
     .steps__line {
         flex: 0 1 16rem;
         height: 0.5rem;
@@ -1814,6 +1825,9 @@ html {
         height: 1.4rem;
         width: 1.4rem;
     }
+    .calc__item-image {
+        width: 80%;
+    }
     .calc__submit-button {
         min-width: 34rem;
     }
@@ -1824,7 +1838,7 @@ html {
         text-align: center;
     }
     .calc__result-image {
-        width: 65%;
+        width: 80%;
         margin: 0 auto;
     }
     .calc__additional-options {
@@ -1833,17 +1847,20 @@ html {
         padding: 3rem 3rem 0;
         justify-content: space-around;
         order: 2;
+        width: 100%;
     }
     .calc__additional-option .text {
         font-size: 2.4rem;
         padding-top: 1rem;
     }
     .calc__items_type_form {
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding-bottom: 6rem;
         background-image: url(./images/calc-bg-small-mobile.png);
         background-position: center 10rem;
+        width: 100%;
     }
     .calc__form {
         padding: 2rem 2rem 1rem;
@@ -2076,6 +2093,87 @@ html {
     }
     .popup__content {
         width: 95%;
+    }
+    .glide {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box
+    }
+    .glide * {
+        box-sizing: inherit
+    }
+    .glide__track {
+        overflow: hidden
+    }
+    .glide__slides {
+        position: relative;
+        width: 100%;
+        list-style: none;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        touch-action: pan-Y;
+        overflow: hidden;
+        padding: 0;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: nowrap;
+        will-change: transform
+    }
+    .glide__slides--dragging {
+        user-select: none
+    }
+    .glide__slide {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        white-space: normal;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent
+    }
+    .glide__slide a {
+        user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-select: none;
+        -ms-user-select: none
+    }
+    .glide__arrows {
+        -webkit-touch-callout: none;
+        user-select: none
+    }
+    .glide__bullets {
+        -webkit-touch-callout: none;
+        user-select: none
+    }
+    .glide--rtl {
+        direction: rtl
+    }
+    .glide__controls {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: calc(50% - 9.5rem);
+        width: 100%;
+        left: 0;
+        z-index: 3;
+    }
+    .glide__control {
+        position: absolute;
+        height: 19rem;
+        width: 19rem;
+        top: 0;
+        border-radius: 50%;
+        background-image: url(./images/glide-button.png);
+        background-repeat: no-repeat;
+        border-color: rgba(0, 0, 0, 0.2);
+        background-position: 4rem center;
+    }
+    .glide__control_prev {
+        left: -9.5rem;
+        transform: rotate(180deg);
+    }
+    .glide__control_next {
+        right: -9.5rem;
     }
 }
 

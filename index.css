@@ -729,6 +729,7 @@ html {
     padding: 0 3.7rem;
     display: block;
     text-align: center;
+    text-decoration: none;
 }
 
 .intro__content {

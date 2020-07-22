@@ -53,6 +53,10 @@ function initTooltip(el) {
 
 document.querySelectorAll('[data-tooltip]').forEach(initTooltip);
 
+/** SCROLL */
+
+const scroll = new SmoothScroll('a[href*="#"]');
+
 /** MOBILE MENU */
 
 const mobileMenuPopup = document.querySelector('.menu-popup');

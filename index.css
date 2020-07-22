@@ -727,6 +727,8 @@ html {
     text-transform: uppercase;
     letter-spacing: .5px;
     padding: 0 3.7rem;
+    display: block;
+    text-align: center;
 }
 
 .intro__content {

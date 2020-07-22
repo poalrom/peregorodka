@@ -75,14 +75,14 @@
             <button class="tooltip-button tooltip-button_type_config" data-tooltip="Повысим шумоизоляцию за&nbsp;счет двойного остекления"></button>
             <button class="tooltip-button tooltip-button_type_count" data-tooltip="Повысим шумоизоляцию за&nbsp;счет двойного остекления"></button>
             <div class="intro__schema-content">
-                <button class="button">Создай свою перегородку</button>
+                <a class="button" data-scroll href="#calc">Создай свою перегородку</a>
                 <p class="intro__schema-description">Всего <strong>5 шагов</strong> и&nbsp;она готова к&nbsp;производству
                 </p>
             </div>
         </div>
         <div class="intro__footer desktop-block">
             <p class="intro__call-to-action">Дарим свободу выбирать</p>
-            <button class="intro__call-to-action-button"></button>
+            <a class="intro__call-to-action-button" data-scroll href="#calc"></a>
         </div>
     </section>
 
@@ -144,7 +144,7 @@
     </section>
 
     <form class="calc" action="#">
-        <h2 class="calc__title">Конструктор</h2>
+        <h2 class="calc__title" id="calc">Конструктор</h2>
         <div class="calc__step calc__step_1 calc__step_active">
             <p class="calc__subtitle">Шаг <b>1</b>: тип перегородки</p>
             <ul class="steps">
@@ -881,6 +881,7 @@
             <button class="popup__close-button order-toggler">X</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/@glidejs/glide"></script>
     <script src="./index.js"></script>

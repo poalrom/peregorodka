@@ -1094,10 +1094,24 @@ html {
 .calc__items_type_final-form {
     background-image: none;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 1.5fr 3fr;
     column-gap: 3rem;
     align-items: center;
     padding-top: 6rem;
+}
+
+.calc__selected-options {
+    font-size: 1.8rem;
+    align-self: baseline;
+}
+
+.calc__selected-options-list {
+    list-style-type: "—";
+    padding-left: 2rem;
+}
+
+.calc__selected-option {
+    padding: .5rem 0 .5rem 1rem;
 }
 
 .calc__items_selected .calc__item {
@@ -1885,6 +1899,10 @@ html {
         height: 100%;
         max-width: 100%;
     }
+    .calc__selected-options {
+        width: 100%;
+        padding: 2rem 4rem;
+    }
     .checkbox {
         flex: 0 0 25px;
     }
@@ -2155,12 +2173,14 @@ html {
         top: calc(50% - 9.5rem);
         width: 100%;
         left: 0;
-        z-index: 3;
+        height: 19rem;
+        overflow: hidden;
     }
     .glide__control {
         position: absolute;
         height: 19rem;
         width: 19rem;
+        z-index: 3;
         top: 0;
         border-radius: 50%;
         background-image: url(./images/glide-button.png);

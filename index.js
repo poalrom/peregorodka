@@ -76,6 +76,7 @@ const resultInputs = construct.querySelectorAll('[type=radio][name="Дверь"]
 const resultImages = construct.querySelectorAll('.calc__result-image');
 const resultName = construct.querySelectorAll('.calc__result');
 const additionalOptions = construct.querySelectorAll('.additional-options-input');
+const selectedOptions = construct.querySelector('.calc__selected-options-list');
 
 const sliders = {
     '.calc__step_1 .glide': null,
@@ -163,17 +164,21 @@ function fillCalcResultImage() {
 
 function fillLastStep() {
     constructTitle.textContent = 'Поздравляем!';
+    const checkedItems = construct.querySelectorAll(':checked');
+    const selectedOptionsList = [
+        'Тип - ' + construct.elements['Тип'].value,
+        'Дверь - ' + construct.elements['Дверь'].value,
+        'Цвет профиля - ' + construct.elements['Цвет профиля'].value,
+        'Количество слоев - ' + construct.elements['Количество слоев'].value,
+        'Цвет стекла - ' + construct.elements['Цвет стекла'].value,
+        'Рисунок - ' + construct.elements['Рисунок'].value,
+    ];
     additionalOptions.forEach(i => {
-        const optionImage = construct.querySelector(`.calc__additional-option[data-name=${i.name}]`);
-        if (!optionImage) {
-            return;
-        }
         if (i.checked) {
-            optionImage.classList.remove('calc__additional-option_hidden');
-        } else {
-            optionImage.classList.add('calc__additional-option_hidden');
+            selectedOptionsList.push(i.name);
         }
-    })
+    });
+    selectedOptions.innerHTML = selectedOptionsList.map(el => `<li class="calc__selected-option">${el}</li>`).join(' ')
 }
 
 function goToStep(currentStep, nextStepIndex) {
@@ -205,7 +210,12 @@ function handleNextClick(button) {
             console.warn('Item not selected');
             return;
         }
-        selectedItem.querySelector('input').checked = true;
+        const input = selectedItem.querySelector('input');
+        if (!input) {
+            console.warn('Input not found');
+            return;
+        }
+        input.checked = true;
         nextStepIndex = selectedItem.dataset.next;
     }
     goToStep(step, nextStepIndex);

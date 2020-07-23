@@ -1850,6 +1850,10 @@ html {
     }
     .calc__subtitle {
         font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+    .fast-order-toggler {
+        margin-bottom: 3rem;
     }
     .calc__item-title {
         font-size: 2.4rem;
@@ -1921,6 +1925,13 @@ html {
         column-gap: 3rem;
         row-gap: 1.2rem;
         order: 3;
+    }
+    .calc__controls {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+    .calc__next-button {
+        grid-column-start: 1;
     }
     .calc__radio-item {
         justify-content: center;

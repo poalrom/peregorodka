@@ -148,13 +148,13 @@ const additionalOptions = construct.querySelectorAll('.additional-options-input'
 const selectedOptions = construct.querySelector('.calc__selected-options-list');
 
 const sliders = {
-    '.calc__step_1 .glide': null,
-    '.calc__step_2-1 .glide': null,
-    '.calc__step_2-2 .glide': null,
-    '.calc__step_2-2-1 .glide': null,
-    '.calc__step_2-2-2 .glide': null,
-    '.calc__step_2-3 .glide': null,
-    '.calc__step_2-4 .glide': null,
+    '.calc__step[data-index="1"] .glide': null,
+    '.calc__step[data-index="2-1"] .glide': null,
+    '.calc__step[data-index="2-2"] .glide': null,
+    '.calc__step[data-index="2-2-1"] .glide': null,
+    '.calc__step[data-index="2-2-2"] .glide': null,
+    '.calc__step[data-index="2-3"] .glide': null,
+    '.calc__step[data-index="2-4"] .glide': null,
 };
 
 function initSliders() {

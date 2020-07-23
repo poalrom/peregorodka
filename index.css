@@ -2291,7 +2291,6 @@ html {
         margin-right: 1rem;
     }
     .calc__form_size_l {
-        grid-template-columns: 1fr;
         row-gap: 3rem;
     }
 }

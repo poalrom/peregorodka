@@ -2035,6 +2035,7 @@ html {
     .social-button {
         height: 7.7rem;
         width: 7.7rem;
+        background-size: auto 3rem;
     }
     .social-button_inverse.social-button {
         border: .2rem solid rgba(255, 255, 255, .25);

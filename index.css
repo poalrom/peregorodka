@@ -803,28 +803,10 @@ html {
     margin: 0 auto -11.5rem;
 }
 
-.fast-order-opener {
+.fast-order-toggler {
+    margin: 0 auto 2rem;
     border: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 11;
-    height: 17rem;
-    background-color: transparent;
-    background-image: url(./images/fast-order-opener.png);
-    background-repeat: no-repeat;
-    background-position: center -2rem;
-    background-size: 100%;
-    transition: background-position .1s ease-in;
-}
-
-.fast-order-opener:hover {
-    background-position: center 0;
-}
-
-.fast-order-opener_hidden {
-    display: none;
+    background: none;
 }
 
 .fast-order {
@@ -1061,6 +1043,8 @@ html {
     padding: 8rem 0 8.0rem;
     margin: 0 auto;
     background-color: #ecefff;
+    display: flex;
+    flex-direction: column;
 }
 
 .calc__step {
@@ -1095,7 +1079,7 @@ html {
     font-weight: 500;
     line-height: 2.9rem;
     text-align: center;
-    margin: 0 0 2.2rem;
+    margin: 0 0 0.5rem;
 }
 
 .calc__items {
@@ -1198,9 +1182,23 @@ html {
     padding-left: 1.0rem;
 }
 
+.calc__controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+}
+
 .calc__submit-button {
     min-width: 22.5rem;
     line-height: 6.0rem;
+}
+
+.calc__next-button {
+    grid-column-start: 2;
+}
+
+.calc__prev-button {
+    background: linear-gradient(90deg, rgba(253, 194, 74, 1) 0%, rgba(240, 99, 38, 1) 100%);
 }
 
 .calc__result {
@@ -1782,9 +1780,6 @@ html {
     }
     .utp__img {
         max-width: 75%;
-    }
-    .fast-order-opener {
-        background-position: center 0;
     }
     .fast-order__title {
         padding: 0 8rem;

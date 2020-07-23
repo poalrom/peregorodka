@@ -87,6 +87,14 @@ const orderButtons = document.querySelectorAll('.order-toggler')
         button.addEventListener('click', () => orderPopup.classList.toggle('popup_hidden'))
     });
 
+/** FAST ORDER POPUP */
+
+const fastOrderPopup = document.querySelector('.fast-order-popup');
+const fastOrderButtons = document.querySelectorAll('.fast-order-toggler')
+    .forEach((button) => {
+        button.addEventListener('click', () => fastOrderPopup.classList.toggle('popup_hidden'))
+    });
+
 
 /** ARROW DISABLER */
 
@@ -138,30 +146,6 @@ const resultImages = construct.querySelectorAll('.calc__result-image');
 const resultName = construct.querySelectorAll('.calc__result');
 const additionalOptions = construct.querySelectorAll('.additional-options-input');
 const selectedOptions = construct.querySelector('.calc__selected-options-list');
-
-/** SKIP-FORM */
-const fastOrderOpener = document.querySelector('.fast-order-opener');
-const fastOrderPopup = document.querySelector('.fast-order-popup');
-
-function constructorIntersectionCallback(entries, observer) {
-    const isLastStepActive = construct.querySelector('.calc__step_6.calc__step_active');
-    console.log(entries[0]);
-    if (!isLastStepActive && (entries[0].isIntersecting || entries[0].boundingClientRect.top < 0)) {
-        fastOrderOpener.classList.remove('fast-order-opener_hidden');
-    } else {
-        fastOrderOpener.classList.add('fast-order-opener_hidden');
-    }
-}
-
-const observer = new IntersectionObserver(constructorIntersectionCallback, {
-    threshold: 0.7
-});
-
-observer.observe(construct);
-
-fastOrderOpener.addEventListener('click', () => {
-    fastOrderPopup.classList.remove('popup_hidden')
-})
 
 const sliders = {
     '.calc__step_1 .glide': null,
@@ -268,19 +252,21 @@ function fillLastStep() {
     selectedOptions.innerHTML = selectedOptionsList.map(el => `<li class="calc__selected-option">${el}</li>`).join(' ')
 }
 
-function goToStep(currentStep, nextStepIndex) {
-    const nextStepClass = '.calc__step_' + nextStepIndex;
-    const nextStep = construct.querySelector(nextStepClass);
+function goToStep(currentStep, nextStepIndex, keepPrev) {
+    const nextStepSelector = '.calc__step[data-index="' + nextStepIndex + '"]';
+    const nextStep = construct.querySelector(nextStepSelector);
     if (!nextStep) {
         console.warn('Next step not found');
         return;
     }
     if (nextStepIndex === '6') {
         fillLastStep();
-        fastOrderOpener.classList.add('fast-order-opener_hidden');
     }
     fillCalcResultImage();
     currentStep.classList.remove('calc__step_active');
+    if (!keepPrev) {
+        nextStep.dataset.prev = currentStep.dataset.index;
+    }
     nextStep.classList.add('calc__step_active');
     Object.values(sliders).forEach(slider => slider && slider.update());
 }
@@ -309,6 +295,15 @@ function handleNextClick(button) {
     goToStep(step, nextStepIndex);
 }
 
+function goBackToStep(stepButton) {
+    const step = stepButton.closest('.calc__step');
+    if (!step || !step.dataset.prev) {
+        console.warn('Current step not found');
+        return;
+    }
+    goToStep(step, step.dataset.prev, true);
+}
+
 construct.addEventListener('click', (e) => {
     if (e.target.classList.contains('calc__item-input')) {
         return handleInputClick(e.target);
@@ -316,5 +311,9 @@ construct.addEventListener('click', (e) => {
 
     if (e.target.classList.contains('calc__next-button')) {
         return handleNextClick(e.target);
+    }
+
+    if (e.target.classList.contains('calc__prev-button')) {
+        return goBackToStep(e.target);
     }
 });

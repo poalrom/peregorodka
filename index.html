@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <button class="fast-order-opener fast-order-opener_hidden"></button>
     <nav class="menu-popup menu-popup_hidden mobile-block">
         <button class="menu-popup__close-button menu-toggler"></button>
         <div class="menu-popup__phones">
@@ -148,8 +147,9 @@
             </section>
         </div>
         <h2 class="calc__title" id="calc">Конструктор</h2>
-        <div class="calc__step calc__step_1 calc__step_active">
+        <div class="calc__step calc__step_active" data-index="1">
             <p class="calc__subtitle">Шаг <b>1</b>: тип перегородки</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -202,10 +202,13 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-1">
+        <div class="calc__step" data-index="2-1">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -257,10 +260,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-2">
+        <div class="calc__step" data-index="2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор типа двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -302,10 +309,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-2-1">
+        <div class="calc__step" data-index="2-2-1">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -358,10 +369,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-2-2">
+        <div class="calc__step" data-index="2-2-2">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -413,10 +428,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-3">
+        <div class="calc__step" data-index="2-3">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -464,10 +483,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_2-4">
+        <div class="calc__step" data-index="2-4">
             <p class="calc__subtitle">Шаг <b>2</b>: выбор двери</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -514,10 +537,14 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_3 calc__step_no-bg">
+        <div class="calc__step calc__step_no-bg" data-index="3">
             <p class="calc__subtitle">Шаг <b>3</b>: выбор цвета профиля</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -610,10 +637,14 @@
                     <span class="calc__form-delimiter"></span>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button" data-next="4">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button" data-next="4">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_4 calc__step_no-bg">
+        <div class="calc__step calc__step_no-bg" data-index="4">
             <p class="calc__subtitle">Шаг <b>4</b>: заполнение перегородки</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -715,10 +746,14 @@
                     <span class="calc__form-delimiter"></span>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button" data-next="5">Далее</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button" data-next="5">Далее</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_5 calc__step_no-bg">
+        <div class="calc__step calc__step_no-bg" data-index="5">
             <p class="calc__subtitle">Шаг <b>5</b>: дополнительные опции</p>
+            <button type="button" class="fast-order-toggler text text_with-tooltip">Хотите пропустить этот шаг?</button>
             <ul class="steps">
                 <li class="steps__item steps__item_active">
                     1
@@ -772,9 +807,12 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="button calc__next-button calc__submit-button" data-next="6">Перейти к расчету</button>
+            <div class="calc__controls">
+                <button type="button" class="button calc__prev-button calc__submit-button">Назад</button>
+                <button type="button" class="button calc__next-button calc__submit-button" data-next="6">Перейти к расчету</button>
+            </div>
         </div>
-        <div class="calc__step calc__step_6 calc__step_no-bg">
+        <div class="calc__step calc__step_no-bg" data-index="6">
             <p class="calc__subtitle">Выглядит здорово! Приступим к расчету</p>
             <div class="calc__items calc__items_type_form calc__items_type_final-form">
                 <img src="./images/1-1.png" alt="Алюминиевая перегородка с распашной дверью" class="calc__result-image">

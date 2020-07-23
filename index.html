@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <button class="fast-order-opener fast-order-opener_hidden"></button>
     <nav class="menu-popup menu-popup_hidden mobile-block">
         <button class="menu-popup__close-button menu-toggler"></button>
         <div class="menu-popup__phones">
@@ -112,38 +113,40 @@
         </article>
     </section>
 
-    <section class="fast-order">
-        <div class="fast-order__content">
-            <h2 class="fast-order__title">
-                Хотите пропустить этот&nbsp;шаг?
-            </h2>
-            <p class="fast-order__subtitle">
-                Отправьте свои контакты и имеющиеся данные, мы перезвоним для расчета
-            </p>
-            <form action="#" class="fast-order__form">
-                <label class="fast-order__field">
-                    <input type="text" class="input" placeholder="Ваше имя" name="Имя">
-                </label>
-                <label class="fast-order__field">
-                    <input type="email" class="input" placeholder="Ваш email" name="Email">
-                </label>
-                <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон" required name="Телефон">
-                </label>
-                <label class="fast-order__field">
-                    <input type="file" class="input input_type_file" name="Файлы" multiple>
-                    <p class="fast-order__field-placeholder">
-                        Прикрепите файлы
-                        <span class="file-button"></span>
+    <form method="POST" class="calc" action="#">
+        <div class="popup fast-order-popup popup_hidden">
+            <section class="fast-order">
+                <div class="fast-order__content">
+                    <h2 class="fast-order__title">
+                        Хотите пропустить этот&nbsp;шаг?
+                    </h2>
+                    <p class="fast-order__subtitle">
+                        Отправьте свои контакты и имеющиеся данные, мы перезвоним для расчета
                     </p>
-                </label>
-                <button type="submit" class="button fast-order__submit">Перезвоните мне</button>
-            </form>
+                    <div class="fast-order__form">
+                        <label class="fast-order__field">
+                                <input type="text" class="input" placeholder="Ваше имя" name="Имя">
+                            </label>
+                        <label class="fast-order__field">
+                                <input type="email" class="input" placeholder="Ваш email" name="Email">
+                            </label>
+                        <label class="fast-order__field">
+                                <input type="phone" class="input" placeholder="Ваш телефон" required name="Телефон">
+                            </label>
+                        <label class="fast-order__field">
+                                <input type="file" class="input input_type_file" name="Файлы" multiple>
+                                <p class="fast-order__field-placeholder">
+                                    Прикрепите файлы
+                                    <span class="file-button"></span>
+                                </p>
+                            </label>
+                        <button type="submit" class="button fast-order__submit">Перезвоните мне</button>
+                    </div>
+                </div>
+                <div class="fast-order__hint"></div>
+                <button type="button" class="popup__close-button popup__toggler">X</button>
+            </section>
         </div>
-        <div class="fast-order__hint"></div>
-    </section>
-
-    <form class="calc" action="#">
         <h2 class="calc__title" id="calc">Конструктор</h2>
         <div class="calc__step calc__step_1 calc__step_active">
             <p class="calc__subtitle">Шаг <b>1</b>: тип перегородки</p>
@@ -169,9 +172,10 @@
                 </li>
             </ul>
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -224,9 +228,9 @@
                 </li>
             </ul>
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -279,9 +283,9 @@
                 </li>
             </ul>
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -325,9 +329,9 @@
             </ul>
 
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -380,9 +384,9 @@
                 </li>
             </ul>
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -436,9 +440,9 @@
             </ul>
 
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides calc__items_col-3">
@@ -486,9 +490,9 @@
                 </li>
             </ul>
             <div class="glide">
-                <div data-glide-el="controls" class="glide__controls">
-                    <button data-glide-dir="<" class="glide__control glide__control_prev"></button>
-                    <button data-glide-dir=">" class="glide__control glide__control_next"></button>
+                <div data-glide-el="controls" class="glide__arrows">
+                    <button data-glide-dir="<" class="glide__arrow glide__arrow_prev"></button>
+                    <button data-glide-dir=">" class="glide__arrow glide__arrow_next"></button>
                 </div>
                 <div class="glide__track" data-glide-el="track">
                     <div class="calc__items glide__slides">
@@ -768,7 +772,6 @@
                     </div>
                 </div>
             </div>
-            <button class="text text_with-tooltip skip-button" data-next="6" type="button">Пропустить этот шаг</button>
             <button type="button" class="button calc__next-button calc__submit-button" data-next="6">Перейти к расчету</button>
         </div>
         <div class="calc__step calc__step_6 calc__step_no-bg">
@@ -859,7 +862,7 @@
     <div class="popup popup_hidden order-popup">
         <div class="popup__content">
             <h2 class="subtitle">Вызвать замерщика</h2>
-            <form action="#" class="fast-order__form">
+            <form method="POST" action="#" class="fast-order__form">
                 <label class="fast-order__field">
                     <input type="text" class="input" placeholder="Ваше имя" name="Имя">
                 </label>
@@ -876,9 +879,9 @@
                         <span class="file-button"></span>
                     </p>
                 </label>
-                <button type="submit" class="button">Перезвоните мне</button>
+                <button type="submit" class="button fast-order__popup-submit">Перезвоните мне</button>
             </form>
-            <button class="popup__close-button order-toggler">X</button>
+            <button type="button" class="popup__close-button popup__toggler">X</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>

@@ -57,6 +57,20 @@ document.querySelectorAll('[data-tooltip]').forEach(initTooltip);
 
 const scroll = new SmoothScroll('a[href*="#"]');
 
+/** POPUP */
+document.querySelectorAll('.popup').forEach(
+    (popup) => {
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.toggle('popup_hidden')
+            }
+        });
+        popup.querySelectorAll('.popup__toggler').forEach(
+            b => b.addEventListener('click', () => popup.classList.toggle('popup_hidden'))
+        )
+    }
+)
+
 /** MOBILE MENU */
 
 const mobileMenuPopup = document.querySelector('.menu-popup');
@@ -73,6 +87,49 @@ const orderButtons = document.querySelectorAll('.order-toggler')
         button.addEventListener('click', () => orderPopup.classList.toggle('popup_hidden'))
     });
 
+
+/** ARROW DISABLER */
+
+const ArrowDisabler = function(Glide, Components, Events) {
+    return {
+        mount() {
+            // Only in effect when rewinding is disabled
+            if (Glide.settings.rewind) {
+                return
+            }
+
+            Glide.on(['mount.after', 'run'], () => {
+                // Filter out arrows_control
+                for (let controlItem of Components.Controls.items) {
+                    if (controlItem.className !== 'glide__arrows') {
+                        continue
+                    }
+
+                    // Set left arrow state
+                    const left = controlItem.querySelector('.glide__arrow_prev')
+                    if (left) {
+                        if (Glide.index === 0) {
+                            left.setAttribute('disabled', '') // Disable on first slide
+                        } else {
+                            left.removeAttribute('disabled') // Enable on other slides
+                        }
+                    }
+
+                    // Set right arrow state
+                    const right = controlItem.querySelector('.glide__arrow_next')
+                    if (right) {
+                        if (Glide.index === Components.Sizes.length - Glide.settings.perView) {
+                            right.setAttribute('disabled', '') // Disable on last slide
+                        } else {
+                            right.removeAttribute('disabled') // Disable on other slides
+                        }
+                    }
+                }
+            })
+        }
+    }
+}
+
 /** CONSTRUCTOR */
 const construct = document.querySelector('.calc');
 const constructTitle = construct.querySelector('.calc__title');
@@ -81,6 +138,29 @@ const resultImages = construct.querySelectorAll('.calc__result-image');
 const resultName = construct.querySelectorAll('.calc__result');
 const additionalOptions = construct.querySelectorAll('.additional-options-input');
 const selectedOptions = construct.querySelector('.calc__selected-options-list');
+
+/** SKIP-FORM */
+const fastOrderOpener = document.querySelector('.fast-order-opener');
+const fastOrderPopup = document.querySelector('.fast-order-popup');
+
+function constructorIntersectionCallback(entries, observer) {
+    const isLastStepActive = construct.querySelector('.calc__step_6.calc__step_active');
+    if (!isLastStepActive && (entries[0].isIntersecting || entries[0].intersectionRect.y === 0)) {
+        fastOrderOpener.classList.remove('fast-order-opener_hidden');
+    } else {
+        fastOrderOpener.classList.add('fast-order-opener_hidden');
+    }
+}
+
+const observer = new IntersectionObserver(constructorIntersectionCallback, {
+    threshold: 0.9
+});
+
+observer.observe(construct);
+
+fastOrderOpener.addEventListener('click', () => {
+    fastOrderPopup.classList.remove('popup_hidden')
+})
 
 const sliders = {
     '.calc__step_1 .glide': null,
@@ -100,16 +180,18 @@ function initSliders() {
         Object.keys(sliders).forEach(e => {
             if (!sliders[e]) {
                 sliders[e] = new Glide(e, {
-                    type: 'carousel'
-                }).mount();
+                    type: 'slider',
+                    rewind: false
+                }).mount({ ArrowDisabler });
                 return;
             }
-            const isActive = Boolean(construct.querySelector(sliders[e].replace(' .glide', '.calc__step_active')));
+            const isActive = Boolean(construct.querySelector(e.replace(' .glide', '.calc__step_active')));
             if (!isActive) {
                 sliders[e] && sliders[e].destroy();
                 sliders[e] = new Glide(e, {
-                    type: 'carousel'
-                }).mount();
+                    type: 'slider',
+                    rewind: false
+                }).mount({ ArrowDisabler });
             }
         })
     } else {
@@ -194,6 +276,7 @@ function goToStep(currentStep, nextStepIndex) {
     }
     if (nextStepIndex === '6') {
         fillLastStep();
+        fastOrderOpener.classList.add('fast-order-opener_hidden');
     }
     fillCalcResultImage();
     currentStep.classList.remove('calc__step_active');
@@ -225,22 +308,6 @@ function handleNextClick(button) {
     goToStep(step, nextStepIndex);
 }
 
-function skipStep(button) {
-    const step = button.closest('.calc__step');
-    if (!step) {
-        console.warn('Current step not found');
-        return;
-    }
-    const nextStepIndex = button.dataset.next;
-    if (!nextStepIndex) {
-        console.warn('Item not selected');
-        return;
-    }
-    const inputs = step.querySelectorAll('input[type=checkbox]');
-    inputs.forEach(i => i.checked = false);
-    goToStep(step, nextStepIndex);
-}
-
 construct.addEventListener('click', (e) => {
     if (e.target.classList.contains('calc__item-input')) {
         return handleInputClick(e.target);
@@ -248,9 +315,5 @@ construct.addEventListener('click', (e) => {
 
     if (e.target.classList.contains('calc__next-button')) {
         return handleNextClick(e.target);
-    }
-
-    if (e.target.classList.contains('skip-button')) {
-        return skipStep(e.target);
     }
 });

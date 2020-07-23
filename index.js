@@ -145,7 +145,8 @@ const fastOrderPopup = document.querySelector('.fast-order-popup');
 
 function constructorIntersectionCallback(entries, observer) {
     const isLastStepActive = construct.querySelector('.calc__step_6.calc__step_active');
-    if (!isLastStepActive && (entries[0].isIntersecting || entries[0].intersectionRect.y === 0)) {
+    console.log(entries[0]);
+    if (!isLastStepActive && (entries[0].isIntersecting || entries[0].intersectionRect.top === 0)) {
         fastOrderOpener.classList.remove('fast-order-opener_hidden');
     } else {
         fastOrderOpener.classList.add('fast-order-opener_hidden');
@@ -153,7 +154,7 @@ function constructorIntersectionCallback(entries, observer) {
 }
 
 const observer = new IntersectionObserver(constructorIntersectionCallback, {
-    threshold: 0.9
+    threshold: 0.7
 });
 
 observer.observe(construct);

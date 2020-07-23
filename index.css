@@ -1783,6 +1783,9 @@ html {
     .utp__img {
         max-width: 75%;
     }
+    .fast-order-opener {
+        background-position: center 0;
+    }
     .fast-order__title {
         padding: 0 8rem;
         line-height: 1.1;

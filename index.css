@@ -911,6 +911,15 @@ html {
     border-radius: 4px;
 }
 
+.input:active,
+.input:focus,
+.input_type_file:focus+.fast-order__field-placeholder,
+.input_type_file:focus+.file-input__placeholder,
+.input_type_file:active+.fast-order__field-placeholder,
+.input_type_file:active+.file-input__placeholder {
+    outline: 1px solid #e7a016;
+}
+
 .file-button {
     background-image: url(./images/file-button.png);
     height: 4.3rem;
@@ -1927,11 +1936,12 @@ html {
         order: 3;
     }
     .calc__controls {
-        grid-template-columns: 1fr;
-        row-gap: 2rem;
+        width: 90%;
     }
+    .calc__prev-button,
     .calc__next-button {
-        grid-column-start: 1;
+        padding: 2.5rem 4rem;
+        min-width: 0;
     }
     .calc__radio-item {
         justify-content: center;

@@ -82,10 +82,15 @@ const mobileMenuButtons = document.querySelectorAll('.menu-toggler')
 /** ORDER POPUP */
 
 const orderPopup = document.querySelector('.order-popup');
-const orderButtons = document.querySelectorAll('.order-toggler')
+const orderSuccessPopup = document.querySelector('.order-success-popup');
+const fastOrderForm = orderPopup.querySelector('.fast-order__form');
+const fastOrderSubmit = orderPopup.querySelector('.fast-order__popup-submit');
+document.querySelectorAll('.order-toggler')
     .forEach((button) => {
         button.addEventListener('click', () => orderPopup.classList.toggle('popup_hidden'))
     });
+
+
 
 /** FAST ORDER POPUP */
 
@@ -141,6 +146,9 @@ const ArrowDisabler = function(Glide, Components, Events) {
 /** CONSTRUCTOR */
 const construct = document.querySelector('.calc');
 const constructTitle = construct.querySelector('.calc__title');
+const submitButtons = construct.querySelectorAll('[type=submit]');
+const steps = construct.querySelectorAll('.calc__step');
+const endStep = construct.querySelector('.calc__step_end');
 const resultInputs = construct.querySelectorAll('[type=radio][name="Дверь"]');
 const resultImages = construct.querySelectorAll('.calc__result-image');
 const resultName = construct.querySelectorAll('.calc__result');
@@ -304,6 +312,16 @@ function goBackToStep(stepButton) {
     goToStep(step, step.dataset.prev, true);
 }
 
+construct.elements['Телефон'].forEach(el => el.addEventListener('keydown', () => el.classList.remove('input_error')))
+construct.elements['Файлы'].forEach(el => el.addEventListener('change', () => {
+    let filename = [];
+    for (let i = 0; i < el.files.length; i++) {
+        filename.push(el.files[i].name);
+    }
+    el.nextElementSibling.querySelector('.fast-order__field-placeholder-content')
+        .innerHTML = `${filename.join(', ') || 'Прикрепите файлы'} <span class="file-button"></span>`;
+}))
+
 construct.addEventListener('click', (e) => {
     if (e.target.classList.contains('calc__item-input')) {
         return handleInputClick(e.target);
@@ -316,4 +334,108 @@ construct.addEventListener('click', (e) => {
     if (e.target.classList.contains('calc__prev-button')) {
         return goBackToStep(e.target);
     }
+});
+
+function getInputValue(input) {
+    if (['text'].includes(input.type) && input.value) {
+        return input.value;
+    }
+    if (['file'].includes(input.type) && input.value) {
+        return input.files;
+    }
+    if (['radio', 'checkbox'].includes(input.type) && input.checked && input.value) {
+        return input.value;
+    }
+
+    return '';
+}
+
+function getValue(form, key) {
+    if (!form.elements[key].forEach) {
+        return getInputValue(form.elements[key]);
+    }
+    let value = '';
+    form.elements[key].forEach((e) => {
+        const eVal = getInputValue(e);
+        if (eVal) {
+            value = eVal;
+        }
+    });
+
+    return value;
+}
+
+construct.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phoneValue = getValue(construct, 'Телефон');
+    if (!phoneValue) {
+        construct.elements['Телефон'].forEach(el => el.classList.add('input_error'))
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append('Email', getValue(construct, 'Email'));
+    formData.append('Вызвать замерщика', getValue(construct, 'Вызвать замерщика') || '-');
+    formData.append('Дверь', getValue(construct, 'Дверь'));
+    formData.append('Длина', getValue(construct, 'Длина'));
+    formData.append('Жалюзи', getValue(construct, 'Жалюзи') || '-');
+    formData.append('Имя', getValue(construct, 'Имя'));
+    formData.append('Кабель-канал', getValue(construct, 'Кабель-канал') || '-');
+    formData.append('Количество слоев', getValue(construct, 'Количество слоев'));
+    formData.append('Рисунок', getValue(construct, 'Рисунок'));
+    formData.append('СКУД', getValue(construct, 'СКУД') || '-');
+    formData.append('Телефон', phoneValue);
+    formData.append('Тип', getValue(construct, 'Тип'));
+    formData.append('Цвет профиля', getValue(construct, 'Цвет профиля'));
+    formData.append('Цвет стекла', getValue(construct, 'Цвет стекла'));
+    formData.append('Ширина', getValue(construct, 'Ширина'));
+
+    const files = getValue(construct, 'Файлы');
+    for (let i = 0; i < files.length; i++) {
+        formData.append('Файлы', files[i]);
+    }
+    submitButtons.forEach(b => b.disabled = true)
+    fetch('https://peregorodka.free.beeceptor.com', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).then(res => {
+            steps.forEach(s => s.classList.remove('calc__step_active'));
+            endStep.classList.add('calc__step_active');
+            fastOrderPopup.classList.add('popup_hidden');
+        }).catch(console.error)
+        .then(() => submitButtons.forEach(b => b.disabled = true));
+});
+
+fastOrderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phoneValue = getValue(fastOrderForm, 'Телефон');
+    if (!phoneValue) {
+        fastOrderForm.elements['Телефон'].forEach(el => el.classList.add('input_error'))
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append('Имя', getValue(fastOrderForm, 'Имя'));
+    formData.append('Email', getValue(fastOrderForm, 'Email'));
+    formData.append('Телефон', phoneValue);
+
+    const files = getValue(fastOrderForm, 'Файлы');
+    for (let i = 0; i < files.length; i++) {
+        formData.append('Файлы', files[i]);
+    }
+
+    fastOrderSubmit.disabled = true;
+
+    fetch('https://peregorodka.free.beeceptor.com', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).then(res => {
+            orderPopup.classList.add('popup_hidden');
+            orderSuccessPopup.classList.remove('popup_hidden');
+        }).catch(console.error)
+        .then(() => fastOrderSubmit.disabled = false);
 });

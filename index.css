@@ -645,6 +645,10 @@ html {
     margin: 1rem 0;
 }
 
+.subtitle_type_submit {
+    margin: 7rem 2rem;
+}
+
 .text {
     font-size: 1.8rem;
     line-height: 2.6rem;
@@ -730,6 +734,10 @@ html {
     display: block;
     text-align: center;
     text-decoration: none;
+}
+
+.button[disabled] {
+    opacity: 0.7;
 }
 
 .intro__content {
@@ -881,6 +889,10 @@ html {
     font-size: 1.4rem;
 }
 
+.input_error {
+    outline: 2px solid red;
+}
+
 .fast-order__field-description {
     padding: 1rem 2.5rem;
     font-size: 1.4rem;
@@ -903,13 +915,20 @@ html {
     height: 5.3rem;
     z-index: 2;
     margin: 0;
-    padding: 1.7rem .5rem 1.7rem 2rem;
+    padding: 1.7rem 4.8rem 1.7rem 2rem;
     font-size: 1.4rem;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 4px;
+}
+
+.fast-order__field-placeholder-content {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .input:active,
@@ -927,6 +946,8 @@ html {
     width: 4.3rem;
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
+    right: -4.3rem;
 }
 
 .fast-order__submit {
@@ -1609,6 +1630,10 @@ html {
 
 .glide__arrows {
     display: none;
+}
+
+.order-success-popup .popup__content {
+    padding: 4rem 5rem;
 }
 
 @media screen and (max-width: 1450px) {
@@ -2297,6 +2322,9 @@ html {
     .subtitle {
         font-size: 4.5em;
         line-height: 1.2;
+    }
+    .subtitle_type_submit {
+        font-size: 6rem;
     }
     .icon_type_pencil {
         margin-right: 1rem;

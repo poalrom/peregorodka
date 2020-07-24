@@ -135,7 +135,9 @@
                         <label class="fast-order__field">
                                 <input type="file" class="input input_type_file" name="Файлы" multiple>
                                 <p class="fast-order__field-placeholder">
-                                    Прикрепите файлы
+                                    <span class="fast-order__field-placeholder-content">
+                                        Прикрепите файлы
+                                    </span>
                                     <span class="file-button"></span>
                                 </p>
                             </label>
@@ -837,7 +839,9 @@
                     <div class="file-input">
                         <input type="file" class="input input_type_file" name="Файлы" multiple>
                         <p class="file-input__placeholder">
-                            Прикрепите файлы (план, проект)
+                            <span class="fast-order__field-placeholder-content">
+                                Прикрепите файлы
+                            </span>
                             <span class="file-button"></span>
                         </p>
                     </div>
@@ -856,6 +860,13 @@
                 </div>
             </div>
             <button type="submit" class="button calc__submit-button">Получить расчет</button>
+            <a class="text text_minor muted-link" target="_blank">Политика конфиденциальности</a>
+        </div>
+        <div class="calc__step calc__step_no-bg calc__step_end">
+            <p class="calc__subtitle">Заказ успешно оформлен</p>
+            <p class="subtitle subtitle_type_submit">
+                Спасибо за ваш заказ!
+            </p>
             <a class="text text_minor muted-link" target="_blank">Политика конфиденциальности</a>
         </div>
     </form>
@@ -908,17 +919,27 @@
                     <input type="email" class="input" placeholder="Ваш email" name="Email">
                 </label>
                 <label class="fast-order__field">
-                    <input type="phone" class="input" placeholder="Ваш телефон*" name="Телефон">
+                    <input type="phone" class="input" placeholder="Ваш телефон*" required name="Телефон">
                 </label>
                 <label class="fast-order__field">
                     <input type="file" class="input input_type_file" name="Файлы" multiple>
                     <p class="fast-order__field-placeholder">
-                        Прикрепите файлы
+                        <span class="fast-order__field-placeholder-content">
+                            Прикрепите файлы
+                        </span>
                         <span class="file-button"></span>
                     </p>
                 </label>
                 <button type="submit" class="button fast-order__popup-submit">Перезвоните мне</button>
             </form>
+            <button type="button" class="popup__close-button popup__toggler">X</button>
+        </div>
+    </div>
+
+    <div class="popup popup_hidden order-success-popup">
+        <div class="popup__content">
+            <h2 class="subtitle">Вызвать замерщика</h2>
+            <p class="text">Замерщик успешно вызван</p>
             <button type="button" class="popup__close-button popup__toggler">X</button>
         </div>
     </div>
